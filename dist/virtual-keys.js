@@ -16,7 +16,7 @@ function humanSeconds(seconds) {
   }).join(' ');
 }
 
-class VirtualKeysPanel extends LitElement {
+class EL17Panel extends LitElement {
   static get properties() {
     return {
       hass: { type: Object },
@@ -42,7 +42,7 @@ class VirtualKeysPanel extends LitElement {
   }
 
   fetchUsers() {
-    this.hass.callWS({ type: 'virtual_keys/list_users' }).then(users => {
+    this.hass.callWS({ type: 'EL_17/list_users' }).then(users => {
       this.users = [];
       this.tokens = [];
       users.filter(user => !user.system_generated && user.is_active).forEach(user => {
@@ -86,7 +86,7 @@ class VirtualKeysPanel extends LitElement {
 
   addClick() {
     this.hass.callWS({
-      type: 'virtual_keys/create_token',
+      type: 'EL_17/create_token',
       name: this.name,
       user_id: this.user,
       minutes: parseInt(this.expire, 10),
@@ -114,7 +114,7 @@ class VirtualKeysPanel extends LitElement {
     e.stopPropagation();
 
     this.hass.callWS({
-      type: 'virtual_keys/delete_token',
+      type: 'EL_17/delete_token',
       token_id: token.id,
     }).then(() => {
       this.fetchUsers();
@@ -124,7 +124,7 @@ class VirtualKeysPanel extends LitElement {
   }
 
   getLoginUrl(token) {
-    return this.hass.hassUrl() + 'local/community/virtual-keys/login.html?token=' + token.jwt_token;
+    return this.hass.hassUrl() + 'local/community/EL-17/login.html?token=' + token.jwt_token;
   }
 
   listItemClick(e, token) {
@@ -220,4 +220,4 @@ class VirtualKeysPanel extends LitElement {
   }
 }
 
-customElements.define('virtual-keys-panel', VirtualKeysPanel);
+customElements.define('EL-17-panel', EL17Panel);
