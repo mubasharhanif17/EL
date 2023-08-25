@@ -1,4 +1,4 @@
-# virtual-keys
+# EL-17
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
 
 Create login link for [Home Assistant](https://www.home-assistant.io/) that you can share with guests.
@@ -15,35 +15,35 @@ Because HACS doesn't support both `Integration` and `Plugin` in the same reposit
 
 * add "Custom repositories" to HACS, paste the URL of this repository and select "Lovelace" as category
 
-* go to HACS -> Frontend, Explore and Download Repositories, search for "virtual keys" and install it
+* go to HACS -> Frontend, Explore and Download Repositories, search for "EL 17" and install it
 
 * in HACS "Custom repositories" delete the URL of this repository
 
 * add "Custom repositories" to HACS, paste the URL of this repository and this time select "Integration" as category
 
-* go to HACS -> Integrations, Explore and Download Repositories, search for "virtual keys" and install it
+* go to HACS -> Integrations, Explore and Download Repositories, search for "EL 17" and install it
 
 * add to `configuration.yaml`:
 
 ```yaml
-virtual_keys:
+EL_17:
 
 panel_custom:
-  - name: virtual-keys-panel
+  - name: EL-17-panel
     require_admin: true
-    url_path: virtual-keys
-    sidebar_title: Virtual Keys
+    url_path: EL-17
+    sidebar_title: EL 17
     sidebar_icon: mdi:key-variant
-    module_url: /local/community/virtual-keys/virtual-keys.js
+    module_url: /local/community/EL-17/EL-17.js
 ```
 
 * restart Home Assistant
 
 # Use case
 
-I want to share a "virtual key" with my friends that is valid for a limited time and that they can use to access specific entities in Home Assistant like the fron gate. The key is actually a link to my Home Assistant that can be opened in a browser.
+I want to share a "EL 17" with my friends that is valid for a limited time and that they can use to access specific entities in Home Assistant like the fron gate. The key is actually a link to my Home Assistant that can be opened in a browser.
 
-To make this work, I need to make some additional steps (after installing Virtual Keys):
+To make this work, I need to make some additional steps (after installing EL 17):
 
 * create a new user in Home Assistant eg. "guest"
 
@@ -53,4 +53,4 @@ To make this work, I need to make some additional steps (after installing Virtua
 
 * install [kiosk-mode](https://github.com/NemesisRE/kiosk-mode) and configure it set "kiosk" mode for user "guest"
 
-Ths is it, you can now create Virtual Keys and share the link.
+Ths is it, you can now create EL 17 and share the link.
