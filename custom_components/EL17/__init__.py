@@ -8,10 +8,10 @@ from homeassistant.helpers.typing import ConfigType
 from homeassistant.components import websocket_api
 from homeassistant.util import dt as dt_util
 
-DOMAIN = "virtual_keys"
+DOMAIN = "EL_17"
 
 
-@websocket_api.websocket_command({vol.Required("type"): "virtual_keys/list_users"})
+@websocket_api.websocket_command({vol.Required("type"): "EL_17/list_users"})
 @websocket_api.require_admin
 @websocket_api.async_response
 async def list_users(
@@ -64,7 +64,7 @@ async def list_users(
 
 @websocket_api.websocket_command(
     {
-        vol.Required("type"): "virtual_keys/create_token",
+        vol.Required("type"): "EL_17/create_token",
         vol.Required("user_id"): str,
         vol.Required("name"): str, # token name
         vol.Required("minutes"): int, # minutes
@@ -102,7 +102,7 @@ async def create_token(
 
 @websocket_api.websocket_command(
     {
-        vol.Required("type"): "virtual_keys/delete_token",
+        vol.Required("type"): "EL_17/delete_token",
         vol.Required("token_id"): str
     }
 )
